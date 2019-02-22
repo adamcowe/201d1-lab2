@@ -19,7 +19,7 @@ console.log('Adam\'s sham cellphone = ', cell);
 var talent = prompt('Was Adam ever on a Talent Show?');
 console.log('Adam\'s best talent = ', talent);
 
-if (pets.toLowerCase() === 'y' || stars.toLowerCase() === 'y' || salad.toLowerCase() === 'y' || cell.toLowerCase() === 'n' || talent.toLowerCase() === 'n') {
+if (pets.toLowerCase() === 'y' && stars.toLowerCase() === 'y' && salad.toLowerCase() === 'y' && cell.toLowerCase() === 'n' && talent.toLowerCase() === 'n') {
   alert('You nailed it.');
 
   //If not all correct//
