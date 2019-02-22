@@ -2,28 +2,39 @@
 
 'use strict';
 
+//validation Function
+
+function processResponse(inQuestion, inAnswers) {
+  var userAnswer = prompt(inQuestion).toLowerCase();
+  for (var answerIndex = 0; answerIndex < inAnswers.length; answerIndex++) {
+    if (userAnswer === inAnswers[answerIndex])
+      return 'Correct!';
+  }
+  return 'Incorrect';
+}
+
 //Questions//
 
-var pets = prompt('Does Adam have pets?');
-console.log('Number of pets = ', pets);
+var questionsArr = [
+  {question: 'Does Adam have pets?',
+    answers: ['y','yes']},
+  {question: 'Does Adam like staring at stars?',
+    answers: ['y','yes']},
+  {question: 'Does Adam like Blue Cheese Salad Dressing?',
+    answers: ['y','yes']},
+  {question: 'Does Adam hate his sham iPhone 6?',
+    answers: ['n','no']},
+  {question: 'Was Adam ever on a Talent Show?',
+    answers: ['n','no']}
+];
 
-var stars = prompt('Does Adam like staring at stars?');
-console.log('Number of the stars in the sky = ', stars);
-
-var salad = prompt('Does Adam like Blue Cheese Salad Dressing?');
-console.log('Adam\'s favorite Salad Dressing = ', salad);
-
-var cell= prompt('Does Adam hate his sham iPhone 6?');
-console.log('Adam\'s sham cellphone = ', cell);
-
-var talent = prompt('Was Adam ever on a Talent Show?');
-console.log('Adam\'s best talent = ', talent);
-
-if (pets.toLowerCase() === 'y' && stars.toLowerCase() === 'y' && salad.toLowerCase() === 'y' && cell.toLowerCase() === 'n' && talent.toLowerCase() === 'n') {
-  alert('You nailed it.');
-
-  //If not all correct//
-
-} else {
-  alert('Good guesses but no.');
+var correctAnswerCount = 0;
+for (var i = 0; i < questionsArr.length; i++) {
+  var result = processResponse(questionsArr[i].question, questionsArr[i].answers);
+  alert(result);
+  if (result === 'Correct!') {
+    correctAnswerCount++;
+  }
 }
+
+alert('You got ' + correctAnswerCount + ' answers right.');
